@@ -89,10 +89,6 @@ def predict_fn(input_data, model):
     #       be a numpy array which contains a single integer which is either 1 or 0
 
     output = np.squeeze(model(data))
-    
-    if output > 0.5:
-        result = 1
-    else:
-        result = 0
-
-    return result
+    prediction = np.round(output, 1)
+        
+    return prediction
